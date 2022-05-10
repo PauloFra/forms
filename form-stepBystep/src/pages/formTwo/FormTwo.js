@@ -4,8 +4,14 @@ import * as Component from './FormTwo.styles'
 import * as yup from 'yup'
 import Img from '../../image/img.svg'
 import { TextField } from 'formik-material-ui'
-import { Button } from '@material-ui/core'
+import { useNavigate } from 'react-router-dom'
 function FormTwo() {
+  const navigate = useNavigate()
+ async function Cadastrar(values){
+     navigate(`/home/${values.firstName}`)
+     alert(`Você foi cadastrado no nosso sistema Sr(a) ${values.firstName}`)
+   
+  }
   return (
     <Component.DivMaior>
     <Component.DivLeft>
@@ -32,7 +38,7 @@ function FormTwo() {
             celular:"",
           }
         } onSubmit={(values)=>{
-          console.log(values);
+          Cadastrar(values);
         }}
         >
             <FormikStep 
@@ -151,13 +157,18 @@ export function FormikStepper({children , ...props}){
     }}
     >
     <Form>
-        {step+1 + '/' + childrenArray.length }  
+      <Component.DivSteps>
+        {step+1 + '/' + childrenArray.length } 
+      </Component.DivSteps>
         {currentChild}
+        <div>
         {step > 0 ?
-        <Button onClick={() => setStep(step => step-1) }>Back</Button>
+        <Component.ButtonStepsNSub color='gray' onClick={() => setStep(step => step-1) }>Back</Component.ButtonStepsNSub>
         :
         null}
-        <Button type="submit">{isLastStep()?'Submit':'Next'}</Button>
+        <Component.ButtonStepsNSub back="rgb(67,75,223)" color="white"type="submit">{isLastStep()?'Submit':'Next'}</Component.ButtonStepsNSub>
+        
+        </div>
         </Form>
   
     </Formik>
