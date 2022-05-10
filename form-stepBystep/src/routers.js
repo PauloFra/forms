@@ -5,11 +5,13 @@ import{
     Route
 } from 'react-router-dom'
 import FormOne from './pages/formOne/FormOne.js'
+import FormTwo from './pages/formTwo/FormTwo.js'
+
 function Routers() {
   return (
       <BrowserRouter>
         <Routes>
-            <Route path='/' element={<FormOne />} />
+          <Route path='/' element={<FormTwo />} />
         </Routes>
       </BrowserRouter>
   )
