@@ -158,12 +158,12 @@ export function FormikStepper({children , ...props}){
     >
     <Form>
       <Component.DivSteps>
-        {step+1 + '/' + childrenArray.length } 
+        {step + 1 + '/' + childrenArray.length } 
       </Component.DivSteps>
         {currentChild}
         <div>
         {step > 0 ?
-        <Component.ButtonStepsNSub color='gray' onClick={() => setStep(step => step-1) }>Back</Component.ButtonStepsNSub>
+        <Component.ButtonStepsNSub type='button' color='gray' onClick={() => setStep(step => step - 1) }>Back</Component.ButtonStepsNSub>
         :
         null}
         <Component.ButtonStepsNSub back="rgb(67,75,223)" color="white"type="submit">{isLastStep()?'Submit':'Next'}</Component.ButtonStepsNSub>
